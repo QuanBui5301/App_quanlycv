@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/work_app_nav"
+    app:startDestination="@id/listWork">
+
+    <fragment
+        android:id="@+id/listWork"
+        android:name="com.example.appquanlycongviec.ListWork"
+        android:label="fragment_list_work"
+        tools:layout="@layout/fragment_list_work" >
+        <action
+            android:id="@+id/action_listWork_to_addWork"
+            app:destination="@id/addWork" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWork"
+        android:name="com.example.appquanlycongviec.AddWork"
+        android:label="fragment_add_work"
+        tools:layout="@layout/fragment_add_work" />
+</navigation>

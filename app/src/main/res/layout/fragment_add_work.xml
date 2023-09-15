@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".AddWork">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Thêm Công Việc"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="#000000"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Tên công việc:"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#000000" />
+    <EditText
+        android:id="@+id/workEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Nhập vào tên công việc"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Ngày thực hiện:"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#000000" />
+    <EditText
+        android:id="@+id/timeEdit"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Nhập vào ngày thực hiện"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lưu"
+        android:layout_marginTop="10dp"/>
+
+
+</LinearLayout>
