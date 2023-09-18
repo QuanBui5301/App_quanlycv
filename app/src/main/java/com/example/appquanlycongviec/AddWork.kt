@@ -19,7 +19,8 @@ class AddWork : Fragment() {
     private var mSaveDay = 0
     private var mSaveMonth = 0
     private var mSaveYear = 0
-    private lateinit var sqLiteHelper: SQLiteHelper
+    lateinit var sqLiteHelper: SQLiteHelper
+    lateinit var workContentProvider: WorkContentProvider
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,6 +34,7 @@ class AddWork : Fragment() {
     ): View? {
         binding = FragmentAddWorkBinding.inflate(layoutInflater)
         val view = binding.root
+        workContentProvider = WorkContentProvider()
         sqLiteHelper = SQLiteHelper(view.context)
         binding.timeEdit.setOnClickListener() {
             timePicker()

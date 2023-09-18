@@ -1,5 +1,7 @@
 package com.example.appquanlycongviec
 
+import android.content.Context
+import android.content.UriMatcher
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.LifecycleOwner
@@ -12,6 +14,11 @@ class MainActivity : AppCompatActivity() {
         lateinit var navController: NavController
         lateinit var myViewModel: WorkViewModel
         lateinit var lifecycleOwner: LifecycleOwner
+        var myUricode = 1
+        lateinit var context : Context
+        val PROVIDER : String = "com.example.appquanlycongviec.WorkContentProvider"
+        val TABLE : String = "tbl_work"
+        lateinit var uriMatcher : UriMatcher
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +26,10 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.containerView) as NavHostFragment
         navController = navHostFragment.navController
+        context = this
         myViewModel = ViewModelProvider(this).get(WorkViewModel::class.java)
         lifecycleOwner = this
+        uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
+        uriMatcher.addURI(PROVIDER, TABLE, myUricode)
     }
 }

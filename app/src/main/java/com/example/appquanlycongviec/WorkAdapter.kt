@@ -9,6 +9,7 @@ import com.example.appquanlycongviec.databinding.WorkItemBinding
 
 class WorkAdapter : RecyclerView.Adapter<WorkAdapter.ViewHolder>() {
     lateinit var binding: WorkItemBinding
+    lateinit var sqLiteHelper: SQLiteHelper
     private lateinit var context: Context
     companion object {
         var WorkList : MutableList<Work> = mutableListOf()
@@ -17,6 +18,7 @@ class WorkAdapter : RecyclerView.Adapter<WorkAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = WorkItemBinding.inflate(inflater, parent, false)
+        sqLiteHelper = SQLiteHelper(binding.root.context)
         context = parent.context
         return ViewHolder()
     }

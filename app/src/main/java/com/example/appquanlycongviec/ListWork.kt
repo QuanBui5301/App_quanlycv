@@ -1,5 +1,7 @@
 package com.example.appquanlycongviec
 
+import android.content.ContentValues
+import android.net.Uri
 import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,8 +21,11 @@ import com.example.appquanlycongviec.databinding.FragmentListWorkBinding
 class ListWork : Fragment() {
     lateinit var binding: FragmentListWorkBinding
     lateinit var workAdapter: WorkAdapter
-    private lateinit var sqLiteHelper: SQLiteHelper
-
+    private lateinit var workContentProvider: WorkContentProvider
+    val uri : Uri = Uri.parse("content://com.example.appquanlycongviec.WorkContentProvider/tbl_work")
+    companion object {
+        lateinit var sqLiteHelper: SQLiteHelper
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,8 +39,9 @@ class ListWork : Fragment() {
     ): View? {
         binding = FragmentListWorkBinding.inflate(layoutInflater)
         val view = binding.root
-        WorkList = mutableListOf()
         sqLiteHelper = SQLiteHelper(view.context)
+        WorkList = mutableListOf()
+        workContentProvider = WorkContentProvider()
         myViewModel.currentWork.observe(lifecycleOwner, Observer {
             sqLiteHelper.insertWork(it)
         })
