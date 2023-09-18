@@ -28,8 +28,7 @@
             android:name="com.example.appquanlycongviec.WorkContentProvider"
             android:readPermission="com.example.appquanlycongviec.READ_DATABASE"
             android:writePermission="com.example.appquanlycongviec.WRITE_DATABASE"
-            android:exported="true"
-            android:enabled="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>
