@@ -1,6 +1,7 @@
 package com.example.appquanlycongviec
 
 import android.content.Context
+import android.content.IntentFilter
 import android.content.UriMatcher
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,5 +24,12 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         myViewModel = ViewModelProvider(this).get(WorkViewModel::class.java)
         lifecycleOwner = this
+        var intent = getIntent()
+        var isDone = intent.getIntExtra("isDone", 0)
+        if (isDone == 1) {
+            onBackPressed()
+        }
     }
+
+
 }
